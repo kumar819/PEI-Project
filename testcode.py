@@ -13,7 +13,6 @@ df3=pd.merge(df,df1, on="Customer_ID", how="inner")
 df_grouped = df3.groupby('Country').agg({'Order_ID': 'count', 'Amount': 'sum'}).reset_index()
 min_transactions_country = df_grouped.loc[df_grouped['Order_ID'].idxmin()]
 min_sales_amount_country = df_grouped.loc[df_grouped['Amount'].idxmin()]
-min_transactions_country
 min_sales_amount_country
 df3['Age_Category'] = df3['Age'].apply(lambda x: 'Less than 30' if x < 30 else '30 and above')
 df_grouped = df3.groupby(['Age_Category', 'Item'])['Amount'].sum().reset_index()
